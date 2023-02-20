@@ -1,5 +1,4 @@
-# auto-diary-server
-auto-diary-server
+# 📝 auto-diary-server
 
 1. Open AI api key 발급받기 - https://openai.com/api/
 2. OpenAI-Organization key 찾기
