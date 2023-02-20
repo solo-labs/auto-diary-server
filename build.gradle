@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.3'
+    id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+}
+
+group = 'io.solabs'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // okhttp3
+    implementation 'com.squareup.okhttp3:okhttp:4.8.0'
+
+    // fasterxml.jackson
+    implementation group: 'com.bedatadriven', name: 'jackson-datatype-jts', version: '2.4'
+
+    // logstash for JSON log format
+    implementation group: 'net.logstash.logback', name: 'logstash-logback-encoder', version: '5.3'
+
+    // test
+    implementation 'org.junit.jupiter:junit-jupiter:5.6.2'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+}
+
+test {
+    systemProperty 'spring.profiles.active', 'test'
+    useJUnitPlatform()
+}

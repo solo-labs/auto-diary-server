@@ -1,0 +1,22 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8081
+spring:
+  output:
+    ansi:
+      enabled: detect
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
+
+api:
+  path:
+    default: /api/v1
+  version: "20230220"
+
+# Open AI API
+open-ai:
+  endpoint: "https://api.openai.com/v1/completions"
+
